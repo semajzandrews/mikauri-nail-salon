@@ -8,7 +8,7 @@ export default function Footer() {
           A quiet salon on Park Avenue, Orange NJ. By booking.
         </p>
         <div className="mt-8 text-[10px] uppercase tracking-[0.32em] text-graphite/60">
-          © {new Date().getFullYear()} · MIKAURI · BUILT · BYSEMAJ.COM
+          © {new Date().getFullYear()} · MIKAURI · <a href="https://bysemaj.com" target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline transition-opacity hover:opacity-80">BUILT · BYSEMAJ.COM</a>
         </div>
       </div>
     </footer>
