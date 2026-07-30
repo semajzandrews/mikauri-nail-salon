@@ -11,7 +11,7 @@ export default function Nav() {
         <nav className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => <a key={l.h} href={l.h} className="text-[11px] uppercase tracking-[0.32em] text-graphite hover:text-rose-2 transition-colors">{l.l}</a>)}
         </nav>
-        <a href="tel:+16093889656" className="border border-charcoal text-charcoal px-5 py-2 text-[10px] uppercase tracking-[0.28em] hover:bg-rose-2 hover:text-porcelain hover:border-rose-2">Book</a>
+        <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="border border-charcoal text-charcoal px-5 py-2 text-[10px] uppercase tracking-[0.28em] hover:bg-rose-2 hover:text-porcelain hover:border-rose-2">Book</button>
       </div>
     </header>
   );

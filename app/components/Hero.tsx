@@ -32,7 +32,7 @@ export default function Hero() {
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }} className="mt-9 flex flex-wrap items-center gap-3">
           <a href="#services" className="bg-charcoal text-porcelain px-8 py-4 text-[11px] uppercase tracking-[0.32em] hover:bg-rose-2 transition-colors">View services</a>
-          <a href="tel:+16093889656" className="border border-charcoal px-8 py-4 text-[11px] uppercase tracking-[0.32em] text-charcoal hover:bg-charcoal hover:text-porcelain transition-colors">Book by phone →</a>
+          <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="border border-charcoal px-8 py-4 text-[11px] uppercase tracking-[0.32em] text-charcoal hover:bg-charcoal hover:text-porcelain transition-colors">Reserve your seat →</button>
         </motion.div>
       </div>
     </section>

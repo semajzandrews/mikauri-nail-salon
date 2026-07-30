@@ -23,7 +23,7 @@ export default function Visit() {
             </div>
           ))}
         </div>
-        <div className="mt-12"><a href="tel:+16093889656" className="bg-rose-2 text-porcelain px-10 py-5 text-[11px] uppercase tracking-[0.32em] hover:bg-porcelain hover:text-charcoal transition-colors">Reserve your seat →</a></div>
+        <div className="mt-12"><button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="bg-rose-2 text-porcelain px-10 py-5 text-[11px] uppercase tracking-[0.32em] hover:bg-porcelain hover:text-charcoal transition-colors">Reserve your seat →</button></div>
       </div>
     </section>
   );
