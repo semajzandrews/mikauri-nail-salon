@@ -24,24 +24,18 @@
  */
 
 import { useEffect, useMemo, useState } from "react";
+import { formatAsYouType, isCompletePhone } from "../lib/phone";
 
 
 
 /**
- * US phone formatting + validation, shared behaviour across every build.
- * Progressively formats to (xxx) xxx-xxxx as the customer types, hard-caps at
- * 10 digits so nothing longer can be entered, and exposes a completeness check
- * the submit gate uses. Non-digits are dropped rather than rejected, so paste
- * of "973-555-0123" or "+1 973 555 0123" still lands correctly.
+ * Phone handling lives in app/lib/phone.ts — one module drives the display, the
+ * tel:/sms: hrefs and this field's mask, so what a client reads on the site is
+ * exactly the shape she types back here. (This file used to carry its own copy
+ * of the formatter; that duplication is the drift the doctrine exists to stop.)
  */
-export function formatPhone(input: string): string {
-  const d = input.replace(/\D/g, "").replace(/^1(?=\d{10})/, "").slice(0, 10);
-  if (d.length === 0) return "";
-  if (d.length <= 3) return `(${d}`;
-  if (d.length <= 6) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
-  return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
-}
-export const isPhoneComplete = (v: string) => v.replace(/\D/g, "").length === 10;
+const formatPhone = formatAsYouType;
+const isPhoneComplete = isCompletePhone;
 
 /* mirrors app/components/Services.tsx — [category, name, desc, durationLabel, price] */
 const ROWS: [string, string, string, string, string][] = [

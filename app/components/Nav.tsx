@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import CallOrText from "./CallOrText";
 const LINKS = [{l:"Services",h:"#services"},{l:"Lookbook",h:"#looks"},{l:"Visit",h:"#visit"}];
 export default function Nav() {
   const [s, setS] = useState(false);
@@ -11,7 +12,10 @@ export default function Nav() {
         <nav className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => <a key={l.h} href={l.h} className="text-[11px] uppercase tracking-[0.32em] text-graphite hover:text-rose-2 transition-colors">{l.l}</a>)}
         </nav>
-        <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="border border-charcoal text-charcoal px-5 py-2 text-[10px] uppercase tracking-[0.28em] hover:bg-rose-2 hover:text-porcelain hover:border-rose-2">Book</button>
+        <div className="flex items-center gap-2">
+          <CallOrText tone="ink" />
+          <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="border border-charcoal text-charcoal px-3 py-2 text-[10px] uppercase tracking-[0.28em] hover:bg-rose-2 hover:text-porcelain hover:border-rose-2 min-[560px]:px-5">Book</button>
+        </div>
       </div>
     </header>
   );

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import CallOrText from "./CallOrText";
 export default function Visit() {
   return (
     <section id="visit" className="py-28 md:py-36 bg-charcoal text-porcelain">
@@ -11,9 +12,8 @@ export default function Visit() {
           </h2>
           <div className="text-[11px] uppercase tracking-[0.42em] text-rose mt-2">ORANGE · NEW JERSEY · 07050</div>
         </motion.div>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto">
           {[
-            { k: "BOOKING", v: "(609) 388-9656", c: "border-rose" },
             { k: "HOURS",   v: "Mon–Sat · 9:30 to 6:30", c: "border-champagne" },
             { k: "RATING",  v: "4.4 ★ · 66 reviews", c: "border-rose" },
           ].map((s) => (
@@ -23,7 +23,8 @@ export default function Visit() {
             </div>
           ))}
         </div>
-        <div className="mt-12"><button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="bg-rose-2 text-porcelain px-10 py-5 text-[11px] uppercase tracking-[0.32em] hover:bg-porcelain hover:text-charcoal transition-colors">Reserve your seat →</button></div>
+        <div className="mt-10"><CallOrText variant="inline" /></div>
+        <div className="mt-10"><button type="button" onClick={() => window.dispatchEvent(new CustomEvent("mik:book"))} className="bg-rose-2 text-porcelain px-10 py-5 text-[11px] uppercase tracking-[0.32em] hover:bg-porcelain hover:text-charcoal transition-colors">Reserve your seat →</button></div>
       </div>
     </section>
   );
